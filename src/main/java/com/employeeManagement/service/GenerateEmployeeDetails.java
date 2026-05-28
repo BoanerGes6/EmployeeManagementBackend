@@ -49,6 +49,7 @@ public class GenerateEmployeeDetails {
 		for (int i = 0; i < passwordLength - 2; i++) {
 			pswd.append(allChars.charAt(rand.nextInt(allChars.length())));
 		}
+		
 		return pswd.toString();
 	}
 }

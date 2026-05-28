@@ -1,6 +1,8 @@
 package com.employeeManagement.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,8 +20,10 @@ public class Employee {
 	@NotBlank(message = "Name Field Is Empty")
 	private String name;
 	private String employeeId;
-	@NotBlank(message = "Role Field Is Empty")
-	private String role;
+	@NotBlank(message = "Designation Field Is Empty")
+	private String designation;
+	@Enumerated(EnumType.STRING)
+	private AccessRole role;
 	@NotBlank(message = "Departent Field Is Empty")
 	private String department;
 	@NotNull(message = "Mobile Field Is Empty")
@@ -98,12 +102,6 @@ public class Employee {
 	public void setEmployeeId(String employeeId) {
 		this.employeeId = employeeId;
 	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
 	public String getDepartment() {
 		return department;
 	}
@@ -121,6 +119,18 @@ public class Employee {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getDesignation() {
+		return designation;
+	}
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+	public AccessRole getRole() {
+		return role;
+	}
+	public void setRole(AccessRole role) {
+		this.role = role;
 	}
 	
 }

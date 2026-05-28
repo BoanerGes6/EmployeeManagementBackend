@@ -1,26 +1,26 @@
 package com.employeeManagement.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.employeeManagement.model.Employee;
-import com.employeeManagement.service.AdminService;
+import com.employeeManagement.model.EmployeeLogin;
+import com.employeeManagement.service.LoginService;
 
 @RestController
 @RequestMapping("/api")
-public class AdminController {
+public class LoginController {
 
 	@Autowired
-	private AdminService admService;
+	private LoginService loginService;
 	
-	@PostMapping("/employee")
-	public ResponseEntity<Employee> newEmployee(@RequestBody Employee employee) {
+	@PostMapping("/employeeLogin")
+	public String employeeLogin(@RequestBody EmployeeLogin empLogin) {
 		
-		return admService.addEmpoyee(employee);
+		return loginService.login(empLogin);
 	}
 	
 }
